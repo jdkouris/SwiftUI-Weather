@@ -23,11 +23,11 @@ struct ContentView: View {
                 MainWeatherStatusView(imageName: isNight ? "moon.stars.fill" : "cloud.sun.fill", temperature: 76)
                 
                 HStack(spacing: 20) {
-                    WeatherDayView(dayOfWeek: "TUE", imageName: "cloud.sun.fill", temperature: 74)
-                    WeatherDayView(dayOfWeek: "WED", imageName: "sun.max.fill", temperature: 88)
-                    WeatherDayView(dayOfWeek: "THU", imageName: "wind.snow", temperature: 33)
-                    WeatherDayView(dayOfWeek: "FRI", imageName: "cloud.drizzle.fill", temperature: 66)
-                    WeatherDayView(dayOfWeek: "SAT", imageName: "cloud.rain.fill", temperature: 60)
+                    WeatherDayView(day: Day(dayOfWeek: "TUE", imageName: "cloud.sun.fill", temperature: 76))
+                    WeatherDayView(day: Day(dayOfWeek: "WED", imageName: "sun.max.fill", temperature: 88))
+                    WeatherDayView(day: Day(dayOfWeek: "THU", imageName: "wind.snow", temperature: 33))
+                    WeatherDayView(day: Day(dayOfWeek: "FRI", imageName: "cloud.drizzle.fill", temperature: 66))
+                    WeatherDayView(day: Day(dayOfWeek: "SAT", imageName: "cloud.rain.fill", temperature: 60))
                 }
                 
                 Spacer()
@@ -52,21 +52,19 @@ struct ContentView_Previews: PreviewProvider {
 
 struct WeatherDayView: View {
     
-    var dayOfWeek: String
-    var imageName: String
-    var temperature: Int
+    var day: Day
     
     var body: some View {
         VStack {
-            Text(dayOfWeek)
+            Text(day.dayOfWeek)
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(.white)
-            Image(systemName: imageName)
+            Image(systemName: day.imageName)
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
-            Text("\(temperature)°")
+            Text("\(day.temperature)°")
                 .font(.system(size: 28, weight: .medium))
                 .foregroundColor(.white)
         }
