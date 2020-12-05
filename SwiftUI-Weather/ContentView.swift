@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @State private var isNight = false
     
     var body: some View {
@@ -51,7 +50,6 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct WeatherDayView: View {
-    
     var day: Day
     
     var body: some View {
@@ -72,7 +70,6 @@ struct WeatherDayView: View {
 }
 
 struct BackgroundView: View {
-    
     @Binding var isNight: Bool
     
     var body: some View {
@@ -84,7 +81,6 @@ struct BackgroundView: View {
 }
 
 struct CityTextView: View {
-    
     var cityName: String
     
     var body: some View {
@@ -96,7 +92,6 @@ struct CityTextView: View {
 }
 
 struct MainWeatherStatusView: View {
-    
     var imageName: String
     var temperature: Int
     
